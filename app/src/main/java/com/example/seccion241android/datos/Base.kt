@@ -25,7 +25,7 @@ class Base(context: Context?, name: String?, factory: SQLiteDatabase.CursorFacto
     fun insertProducto(p: Producto){
         val valores = ContentValues()
         valores.put("nombre", p.nombre )
-        valores.put("cantiodad", p.cantidad)
+        valores.put("cantidad", p.cantidad)
         val mibase = this.writableDatabase
         mibase.insert("productos", null, valores)
     }
