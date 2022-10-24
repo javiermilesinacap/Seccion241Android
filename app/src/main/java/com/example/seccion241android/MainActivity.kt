@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val producto = Producto("Raid", 79)
+        val producto = Producto("Raid",79)
         val conexion = Base(this,null,null, null)
         conexion.insertProducto(producto)
     }

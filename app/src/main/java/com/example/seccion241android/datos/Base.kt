@@ -11,16 +11,23 @@ class Base(context: Context?, name: String?, factory: SQLiteDatabase.CursorFacto
 
     companion object{
         val NOMBRE_BASE = "sistemaventas.db"
-        val VERSION = 1
+        val VERSION = 2
     }
     override fun onCreate(p0: SQLiteDatabase?) {
-        var sql = "CREATE TABLE productos(_id INTEGER PRIMARY KEY AUTOINCREMENT, nombre varchar(100), cantidad INTEGER)"
+        var sql = "CREATE TABLE productos(_id INTEGER PRIMARY KEY  AUTOINCREMENT, nombre varchar(100), cantidad INTEGER)"
         if (p0 != null) {
             p0.execSQL(sql)
         }
     }
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
-        TODO("Not yet implemented")
+        var sql1 = "DROP TABLE productos"
+        if (p0 != null) {
+            p0.execSQL(sql1)
+        }
+        var sql = "CREATE TABLE productos(_id INTEGER PRIMARY KEY  AUTOINCREMENT, nombre varchar(100), cantidad INTEGER)"
+        if (p0 != null) {
+            p0.execSQL(sql)
+        }
     }
     fun insertProducto(p: Producto){
         val valores = ContentValues()
